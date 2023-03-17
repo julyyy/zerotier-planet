@@ -1,3 +1,4 @@
+注意，本项目在centos7上因内核版本过低无法很方便生成planet。在centos8上测试成功。
 
 # 一分钟自建zerotier-planet
 
@@ -21,8 +22,9 @@ OR
 git clone https://gitee.com/Jonnyan404/zerotier-planet
 
 cd zerotier-planet
+# 注意，先编辑一下docker-compose.ymal内的ip
 docker-compose up -d
-# 以下步骤为创建planet和moon
+# 以下步骤为创建planet和moon，一条条输入吧
 docker cp mkmoonworld-x86_64 ztncui:/tmp
 docker cp patch.sh ztncui:/tmp
 docker exec -it ztncui bash /tmp/patch.sh
@@ -31,7 +33,7 @@ docker restart ztncui
 
 然后浏览器访问 `http://ip:4000` 打开web控制台界面。
 
-浏览器访问 `http://ip:3180` 打开planet和moon文件下载页面（亦可在项目根目录的`./ztncui/etc/myfs/`里获取）。
+浏览器访问 `http://ip:3180` 打开planet和moon文件下载页面（亦可在项目根目录的`./ztncui/etc/myfs/`里获取，但是没映射要进docker内部？）。
 
 
 - 用户名:admin
